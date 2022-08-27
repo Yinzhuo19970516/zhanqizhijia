@@ -1,13 +1,52 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"pages": [
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "模型"
+			}
+		},
+		{
+			"path": "pages/index/game",
+			"style": {
+				"navigationBarTitleText": "游戏"
+			}
+		},
+		{
+			"path": "pages/index/model",
+			"style": {
+				"navigationBarTitleText": "模型详情"
+			}
+		},
+		{
+			"path": "pages/rule/index",
+			"style": {
+				"navigationBarTitleText": "规则"
 			}
 		}
 	],
+	"tabBar": {
+		"color": "#999999",
+		"selectedColor": "#222222",
+		"borderStyle": "light",
+		"backgroundColor": "#ffffff",
+		"list": [
+			{
+			"pagePath": "pages/index/index",
+			// "iconPath": "static/icon/index.png",
+			// "selectedIconPath": "static/icon/index_active.png",
+			"text": "模型"
+			},
+			{
+				"pagePath": "pages/rule/index",
+				// "iconPath": "static/icon/my.png",
+				// "selectedIconPath": "static/icon/my_active.png",
+				"text": "规则"
+			}
+		]
+	},
 	"globalStyle": {
+		"navigationStyle": "custom",
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",

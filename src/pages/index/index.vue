@@ -1,29 +1,57 @@
 <template>
-	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view>
-			<text class="title">{{title}}</text>
-		</view>
-	</view>
+	<view>
+    <cu-custom bgColor="bg-gradual-blue" :isBack="false">
+      <block slot="content">模型</block>
+    </cu-custom>
+    <view class="company-box" v-for="(item,index) of list" :key="item.company.id">
+      <text class="text-xl">{{item.company.name}}</text>
+      <view class="game-box" v-for="(obj,key) of item.gameList" :key="obj.id" @click="goGameDetail(obj)">
+        <image :src="obj.backgroundUrl" />
+        <text>{{obj.name}}</text>
+      </view>
+    </view>
+  </view>
 </template>
 
 <script>
+  import {getCompanyGame} from '../../api'
 	export default {
 		data() {
 			return {
-				title: 'Hello'
+				title: 'Hello',
+        list: []
 			}
 		},
-		onLoad() {
-
+	  onLoad() {
+      this.init()
 		},
 		methods: {
-
+      async init(){
+        const list = await getCompanyGame()
+        this.list = list
+      },
+      goGameDetail(obj){
+        console.log(obj)
+        uni.navigateTo({
+          url:'/pages/index/game?id='+`${obj.id}`+'&name='+`${obj.name}`
+        })
+      }
 		}
 	}
 </script>
 
-<style>
+<style scoped>
+  .company-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .game-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 	.content {
 		display: flex;
 		flex-direction: column;

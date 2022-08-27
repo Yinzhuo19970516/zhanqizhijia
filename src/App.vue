@@ -1,7 +1,28 @@
 <script>
+  import Vue from 'vue'
 	export default {
 		onLaunch: function() {
-			console.log('App Launch')
+      uni.getSystemInfo({
+        success: function (e) {
+          Vue.prototype.StatusBar = e.statusBarHeight;
+          if (e.platform === 'android') {
+            Vue.prototype.CustomBar = e.statusBarHeight + 50;
+          } else {
+            Vue.prototype.CustomBar = e.statusBarHeight + 45;
+          }
+          // #ifdef MP-WEIXIN
+          Vue.prototype.StatusBar = e.statusBarHeight;
+          let custom = wx.getMenuButtonBundingClientRect();
+          Vue.prototype.StatusBar = e.statusBarHeight;
+          Vue.prototype.Custom = custom;
+          Vue.prototype.CustomBar =custom.bottom + custuom.top - e.statusBarHeight;
+          // #endif
+          // #ifdef MP-ALIPAY
+          Vue.prototype.StatusBar = e.statusBarHeight;
+          Vue.prototype.CustomBar = e.statusBarHeight + e.titleBarHeight;
+          // #endif
+        }
+      })
 		},
 		onShow: function() {
 			console.log('App Show')
@@ -14,4 +35,6 @@
 
 <style>
 	/*每个页面公共css */
+  @import "./components/colorui/main.css";
+  @import "./components/colorui/icon.css";
 </style>
