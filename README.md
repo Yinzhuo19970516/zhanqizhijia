@@ -1,4 +1,4 @@
-# zhanqizhijia1
+# zhanqizhijia
 
 ## Project setup
 ```

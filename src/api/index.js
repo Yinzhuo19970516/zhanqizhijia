@@ -14,8 +14,7 @@ export function getModelByGame(params){
 }
 export function getModelById(params){
     return request({
-        url:'/model',
+        url:'/model/'+`${params.id}`,
         method:'GET',
-        data:params
     })
 }
