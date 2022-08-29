@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <cu-custom bgColor="bg-gradual-blue" :isBack="true">
       <block slot="content">模型</block>
     </cu-custom>
@@ -54,12 +54,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.container{
+  background: #fff;
+  min-height: 100%;
+  width: 100%;
+  padding-bottom: 20px;
+}
 .img-box{
   margin: auto;
   display: flex;
   justify-content: center;
   img{
-    width: 90%;
+    width: 100%;
+    height: 300px;
   }
 }
 </style>

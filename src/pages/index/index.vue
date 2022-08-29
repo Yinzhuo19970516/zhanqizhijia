@@ -1,16 +1,18 @@
 <template>
-	<view>
+	<div>
     <cu-custom bgColor="bg-gradual-blue" :isBack="false">
-      <block slot="content">模型</block>
+      <block slot="content">战棋之家</block>
     </cu-custom>
-    <view class="company-box" v-for="(item,index) of list" :key="item.company.id">
-      <text class="text-xl">{{item.company.name}}</text>
-      <view class="game-box" v-for="(obj,key) of item.gameList" :key="obj.id" @click="goGameDetail(obj)">
-        <image :src="obj.backgroundUrl" />
-        <text>{{obj.name}}</text>
-      </view>
-    </view>
-  </view>
+    <div class="company-box" v-for="(item,index) of list" :key="item.company.id">
+      <div class="title solids-bottom">
+        <p class="text-xl">公司：<span class="text-orange">{{item.company.name}}</span></p>
+      </div>
+      <div class="game-box" v-for="(obj,key) of item.gameList" :key="obj.id" @click="goGameDetail(obj)">
+        <img :src="obj.backgroundUrl" />
+        <p>{{obj.name}}</p>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -40,38 +42,30 @@
 	}
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .company-box{
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding:20rpx 40rpx;
+    .title{
+      width:100%;
+      height:60rpx;
+    }
+    .solids-bottom::after {
+      border-bottom: 4px solid #333333;
+    }
   }
   .game-box{
+    margin-top:20rpx;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    img{
+      
+    }
   }
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
 
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin: 200rpx auto 50rpx auto;
-	}
 
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
-	}
 </style>
