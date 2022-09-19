@@ -27,20 +27,20 @@
 	],
 	"tabBar": {
 		"color": "#999999",
-		"selectedColor": "#222222",
+		"selectedColor": "#3985ff",
 		"borderStyle": "light",
 		"backgroundColor": "#ffffff",
 		"list": [
 			{
-			"pagePath": "pages/index/index",
-			// "iconPath": "static/icon/index.png",
-			// "selectedIconPath": "static/icon/index_active.png",
-			"text": "模型"
+				"pagePath": "pages/index/index",
+				"iconPath": "static/icon/a2.png",
+				"selectedIconPath": "static/icon/a1.png",
+				"text": "模型"
 			},
 			{
 				"pagePath": "pages/rule/index",
-				// "iconPath": "static/icon/my.png",
-				// "selectedIconPath": "static/icon/my_active.png",
+				"iconPath": "static/icon/b2.png",
+				"selectedIconPath": "static/icon/b1.png",
 				"text": "规则"
 			}
 		]

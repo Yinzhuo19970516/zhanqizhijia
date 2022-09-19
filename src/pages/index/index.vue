@@ -9,7 +9,7 @@
       </div>
       <div class="game-box" v-for="(obj,key) of item.gameList" :key="obj.id" @click="goGameDetail(obj)">
         <img :src="obj.backgroundUrl" />
-        <p>{{obj.name}}</p>
+        <p class="game-name">{{obj.name}}</p>
       </div>
     </div>
   </div>
@@ -47,13 +47,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding:20rpx 40rpx;
+    padding:20rpx 20rpx;
     .title{
       width:100%;
       height:60rpx;
+      span{
+        font-style: italic;
+      }
     }
     .solids-bottom::after {
-      border-bottom: 4px solid #333333;
+      border-bottom: 2px solid #333333;
     }
   }
   .game-box{
@@ -63,7 +66,13 @@
     justify-content: center;
     align-items: center;
     img{
-      
+      width:100%;
+    }
+    .game-name{
+      margin-top:20rpx;
+      font-size:16px;
+      font-weight: blod;
+      font-style: italic;
     }
   }
 
